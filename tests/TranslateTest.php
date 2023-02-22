@@ -45,6 +45,16 @@ final class TranslateTest extends TestCase
         ]);
     }
 
+    public function testGetArray(): void
+    {
+        $reflection = new ReflectionClass($this->translate);
+
+        $method = $reflection->getMethod('getArray');
+
+        self::assertSame([['id' => 12345, 'name' => 'Name 1'],['id' => 67890, 'name' => 'Name 2']], $method->invokeArgs($this->translate, ['[{"id":12345,"name":"Name 1"},{"id":67890,"name":"Name 2"}]']));
+        self::assertNull($method->invokeArgs($this->translate, [null]));
+    }
+
     public function testGetBoolean(): void
     {
         $reflection = new ReflectionClass($this->translate);

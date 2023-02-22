@@ -53,6 +53,10 @@ final class Translate
             $fieldName = $field['name'];
 
             switch ($field['type']) {
+                case 'array':
+                    $content[$fieldName] = $this->getArray($data[$index]);
+
+                    break;
                 case 'binary':
                 case 'text':
                     $content[$fieldName] = $data[$index];
@@ -86,6 +90,15 @@ final class Translate
         }
 
         return $content;
+    }
+
+    private function getArray(?string $value): ?array
+    {
+        if (null === $value) {
+            return null;
+        }
+
+        return json_decode($value, true);
     }
 
     private function getBoolean(?string $value): ?bool
