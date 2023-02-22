@@ -28,7 +28,7 @@ final class ClientTest extends TestCase
     {
         $this->client->setUser('USER');
 
-        self::assertEquals('USER', $this->client->getUser());
+        self::assertSame('USER', $this->client->getUser());
     }
 
     public function testGetAccountException(): void
@@ -42,7 +42,7 @@ final class ClientTest extends TestCase
     {
         $this->client->setAccount('ACCOUNT');
 
-        self::assertEquals('ACCOUNT', $this->client->getAccount());
+        self::assertSame('ACCOUNT', $this->client->getAccount());
     }
 
     public function testGetPublicKeyException(): void
@@ -56,7 +56,7 @@ final class ClientTest extends TestCase
     {
         $this->client->setPublicKey('PUBLIC_KEY');
 
-        self::assertEquals('PUBLIC_KEY', $this->client->getPublicKey());
+        self::assertSame('PUBLIC_KEY', $this->client->getPublicKey());
     }
 
     public function testGetPrivateKeyException(): void
@@ -70,6 +70,6 @@ final class ClientTest extends TestCase
     {
         $this->client->setPrivateKey('PRIVATE_KEY');
 
-        self::assertEquals('PRIVATE_KEY', $this->client->getPrivateKey());
+        self::assertSame('PRIVATE_KEY', $this->client->getPrivateKey());
     }
 }

@@ -28,7 +28,7 @@ final class ResultTest extends TestCase
 
     public function testGetId(): void
     {
-        self::assertEquals('ID', $this->result->getId());
+        self::assertSame('ID', $this->result->getId());
     }
 
     public function testGetTotal(): void
@@ -37,7 +37,7 @@ final class ResultTest extends TestCase
 
         $this->result->setTotal(10);
 
-        self::assertEquals(10, $this->result->getTotal());
+        self::assertSame(10, $this->result->getTotal());
     }
 
     public function testGetPage(): void
@@ -46,7 +46,7 @@ final class ResultTest extends TestCase
 
         $this->result->setPage(1);
 
-        self::assertEquals(1, $this->result->getPage());
+        self::assertSame(1, $this->result->getPage());
     }
 
     public function testGetPageTotal(): void
@@ -55,7 +55,7 @@ final class ResultTest extends TestCase
 
         $this->result->setPageTotal(20);
 
-        self::assertEquals(20, $this->result->getPageTotal());
+        self::assertSame(20, $this->result->getPageTotal());
     }
 
     public function testGetFields(): void
@@ -68,7 +68,7 @@ final class ResultTest extends TestCase
             ],
         ]);
 
-        self::assertEquals([
+        self::assertSame([
             [
                 'name' => 'Field1',
             ],
@@ -103,7 +103,7 @@ final class ResultTest extends TestCase
             ],
         ]);
 
-        self::assertEquals([
+        self::assertSame([
             [
                 'FIELD1' => 'value1',
                 'FIELD2' => true,
@@ -130,7 +130,7 @@ final class ResultTest extends TestCase
             ],
         ]);
 
-        self::assertEquals([
+        self::assertSame([
             [
                 'field1',
                 'field2',
@@ -149,7 +149,7 @@ final class ResultTest extends TestCase
         $this->result->setTimestamp(1633082116654);
 
         self::assertInstanceOf(DateTimeInterface::class, $this->result->getTimestamp());
-        self::assertEquals(new DateTime('2021-10-01T09:55:16.0000000+00:00'), $this->result->getTimestamp());
+        self::assertSame('2021-10-01T11:55:16.000000+02:00', $this->result->getTimestamp()->format('Y-m-d\TH:i:s.uP'));
     }
 
     public function testIsExecuted(): void

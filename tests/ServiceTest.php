@@ -27,7 +27,7 @@ final class ServiceTest extends TestCase
 
         $this->service->setWarehouse('ACCOUNT');
 
-        self::assertEquals('ACCOUNT', $this->service->getWarehouse());
+        self::assertSame('ACCOUNT', $this->service->getWarehouse());
     }
 
     public function testGetDatabase(): void
@@ -36,7 +36,7 @@ final class ServiceTest extends TestCase
 
         $this->service->setDatabase('DATABASE');
 
-        self::assertEquals('DATABASE', $this->service->getDatabase());
+        self::assertSame('DATABASE', $this->service->getDatabase());
     }
 
     public function testGetSchema(): void
@@ -45,7 +45,7 @@ final class ServiceTest extends TestCase
 
         $this->service->setSchema('SCHEMA');
 
-        self::assertEquals('SCHEMA', $this->service->getSchema());
+        self::assertSame('SCHEMA', $this->service->getSchema());
     }
 
     public function testGetRole(): void
@@ -54,7 +54,7 @@ final class ServiceTest extends TestCase
 
         $this->service->setRole('ROLE');
 
-        self::assertEquals('ROLE', $this->service->getRole());
+        self::assertSame('ROLE', $this->service->getRole());
     }
 
     public function testIsNullable(): void

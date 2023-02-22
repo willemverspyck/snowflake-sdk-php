@@ -157,7 +157,7 @@ final class Translate
         }
 
         if (1 === preg_match('/^(\d+\.\d{6})\d{3}\s(\d{1,4})/is', $value, $matches)) {
-            $timezone = new DateTimeZone(sprintf('+%02d:%02d', floor($matches[2] / 60), $matches[2] % 2));
+            $timezone = new DateTimeZone(sprintf('+%02d:%02d', floor($matches[2] / 60), $matches[2] % 60));
 
             $date = new DateTime(sprintf('@%f', $matches[1]));
             $date->setTimezone($timezone);
