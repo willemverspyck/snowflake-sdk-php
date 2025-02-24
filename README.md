@@ -3,7 +3,7 @@
 Snowflake API connector in PHP
 
 ## Requirements
-PHP ^8.0
+PHP ^8.1
 
 ## Installation
 Install it using [Composer](https://getcomposer.org/):
