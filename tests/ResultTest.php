@@ -149,7 +149,10 @@ final class ResultTest extends TestCase
         $this->result->setTimestamp(1633082116654);
 
         self::assertInstanceOf(DateTimeInterface::class, $this->result->getTimestamp());
-        self::assertSame('2021-10-01T11:55:16.000000+02:00', $this->result->getTimestamp()->format('Y-m-d\TH:i:s.uP'));
+
+        $timestamp = DateTime::createFromFormat('Y-m-d\TH:i:s', '2021-10-01T09:55:16');
+        
+        self::assertSame($timestamp->format('Y-m-d\TH:i:s.uP'), $this->result->getTimestamp()->format('Y-m-d\TH:i:s.uP'));
     }
 
     public function testIsExecuted(): void
